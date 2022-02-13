@@ -3,6 +3,7 @@ Read file into texts and calls.
 It's ok if you don't understand how to read files
 """
 import csv
+
 with open('texts.csv', 'r') as f:
     reader = csv.reader(f)
     texts = list(reader)
@@ -19,4 +20,10 @@ Print a message:
 "<telephone number> spent the longest time, <total time> seconds, on the phone during 
 September 2016.".
 """
+plus_grand = 0
+for data in calls:
+    if int(data[3]) > int(plus_grand):
+        plus_grand = data[3]
+        telephone_num = data[0]
+print("{} spent the longest time, {} seconds, on the phone during September 2016.".format(telephone_num,plus_grand))
 
