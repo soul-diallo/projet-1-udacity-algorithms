@@ -32,7 +32,37 @@ Print the answer as part of a message:
 "The numbers called by people in Bangalore have codes:"
  <list of codes>
 The list of codes should be print out one per line in lexicographic order with no duplicates.
+"""
 
+def fixed_lines(number):
+    area_code = []
+    if number[0][0] == "(":
+        for i in range(len(number)):
+            area_code.append(number[i+1])
+            if number[i][i] == ")":
+                break
+    return area_code
+
+def list_num(code):
+    list_num = []
+    list_code = []
+    flag = False
+    for i in range(len(calls)):
+        for j in range(len(code)):
+            if calls[i][0][j] == code[j]:
+                flag = True
+            else:
+                flag = False
+        if flag:
+            list_code.append(fixed_lines(calls[i][1]))
+            list_num.append(calls[i][1])
+    return list_code
+
+
+print(list_num("(080)"))
+
+
+"""
 Part B: What percentage of calls from fixed lines in Bangalore are made
 to fixed lines also in Bangalore? In other words, of all the calls made
 from a number starting with "(080)", what percentage of these calls
